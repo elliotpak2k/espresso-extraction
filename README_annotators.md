@@ -19,6 +19,33 @@ cd espresso-extraction
 pip install -U potato-annotation
 ```
 
+**If `pip install` fails** (for example with an `externally-managed-environment`
+error), or you'd rather not install Potato globally, use a virtual environment
+instead. From the `espresso-extraction` folder:
+
+```
+python -m venv .venv
+.venv\Scripts\activate          # Windows (Command Prompt or PowerShell)
+source .venv/bin/activate       # macOS / Linux
+pip install -U potato-annotation
+```
+
+Activate the venv again in every new terminal before running `potato start`
+(including Part 2 and when you resume later). If PowerShell refuses to run the
+activate script, run `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
+first, or use Command Prompt.
+
+**Windows only:** in the same terminal, run this before `potato start`, or
+Potato can crash while printing emoji to the console:
+
+```
+set PYTHONUTF8=1                # Command Prompt
+$env:PYTHONUTF8 = "1"           # PowerShell
+```
+
+If the `potato` command is not found or is blocked, use
+`python -m potato start config.yaml -p 8000` instead.
+
 ## 3. Part 1: Channeling
 
 Use the folder number you were assigned (e.g. annotator_3):
