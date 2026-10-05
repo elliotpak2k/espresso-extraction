@@ -1,0 +1,57 @@
+# Potato task for annotator_2. Run from THIS folder:  potato start config.yaml -p 8000
+annotation_task_name: "Espresso Crema Extraction (annotator_2)"
+task_dir: "."
+port: 8000
+
+data_files:
+  - "data.jsonl"
+item_properties:
+  id_key: id
+  text_key: image
+
+instance_display:
+  fields:
+    - key: image
+      type: image
+      label: "Crema photo"
+      display_options: {max_width: "100%", max_height: 600, zoomable: true, resizable: false}
+
+annotation_codebook_url: "https://github.com/elliotpak2k/espresso-extraction/blob/main/annotation_guidelines.md"
+
+annotation_schemes:
+  - annotation_type: radio
+    name: crema_extraction
+    description: "How does the extraction look from the crema? (guidelines B2-B3)"
+    labels:
+      - "Under"
+      - "Balanced"
+      - "Over"
+    sequential_key_binding: true
+    label_requirement: {required: true}
+  - annotation_type: confidence
+    name: crema_confidence
+    description: "How confident are you in this rating?"
+    target_schema: crema_extraction
+    scale_type: likert
+    labels: ["1 - Guessing", "2", "3", "4", "5 - Certain"]
+    label_requirement: {required: true}
+  - annotation_type: multiselect
+    name: crema_image_quality
+    description: "Optional: tick if the photo is too blurry or dark to judge"
+    labels:
+      - "Image quality issue"
+    label_requirement: {required: false}
+
+assignment_strategy: fixed_order   # data.jsonl is already shuffled per person
+num_annotators_per_item: 1         # local copy = one annotator
+
+# log in as: annotator_2  (no password; only this username is accepted)
+require_password: false
+user_config:
+  allow_all_users: false
+  users: ["annotator_2"]
+
+# labels are saved to annotation_output/annotator_2/user_state.json;
+# a jsonl export is also written to annotation_output/exports/
+output_annotation_dir: "annotation_output/"
+export_annotation_format: jsonl

@@ -1,0 +1,30 @@
+# --- PRIVATE: never commit (breaks annotator blinding) ---
+PRIVATE_*
+raw_photos/
+# original Google Sheet exports (contain shot settings)
+*.csv
+*.xlsx
+
+# annotator results (sent back privately, not committed)
+annotation_output/
+**/annotation_output/
+# files Potato generates in each annotator folder at startup
+annotators/**/layouts/
+annotators/**/project.sqlite*
+annotators/**/admin_api_key.txt
+
+# Python / venv
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
