@@ -1,0 +1,69 @@
+# Potato task for annotator_6. Run from THIS folder:  potato start config.yaml -p 8000
+annotation_task_name: "Espresso Puck Channeling (annotator_6)"
+task_dir: "."
+port: 8000
+
+data_files:
+  - "data.jsonl"
+item_properties:
+  id_key: id
+  text_key: image
+
+instance_display:
+  fields:
+    - key: image
+      type: image
+      label: "Puck photo"
+      display_options: {max_width: "100%", max_height: 600, zoomable: true, resizable: false}
+
+annotation_codebook_url: "https://github.com/elliotpak2k/espresso-extraction/blob/main/annotation_guidelines.md"
+
+annotation_schemes:
+  - annotation_type: multiselect
+    name: channeling_features
+    description: "Step 1: tick EVERY feature you see (guidelines A1). Leave blank if none."
+    labels:
+      - "Pinholes"
+      - "Cracks"
+      - "Edge gap"
+      - "Wet pooling"
+      - "Uneven color"
+      - "Craters / divots"
+    label_requirement: {required: false}
+  - annotation_type: radio
+    name: channeling_severity
+    description: "Step 2: how severe is the channeling? (guidelines A3-A4)"
+    labels:
+      - "0 - None"
+      - "1 - Low"
+      - "2 - Medium"
+      - "3 - High"
+    sequential_key_binding: true
+    label_requirement: {required: true}
+  - annotation_type: confidence
+    name: channeling_confidence
+    description: "How confident are you in this rating?"
+    target_schema: channeling_severity
+    scale_type: likert
+    labels: ["1 - Guessing", "2", "3", "4", "5 - Certain"]
+    label_requirement: {required: true}
+  - annotation_type: multiselect
+    name: puck_image_quality
+    description: "Optional: tick if the photo is too blurry or dark to judge"
+    labels:
+      - "Image quality issue"
+    label_requirement: {required: false}
+
+assignment_strategy: fixed_order   # data.jsonl is already shuffled per person
+num_annotators_per_item: 1         # local copy = one annotator
+
+# log in as: annotator_6  (no password; only this username is accepted)
+require_password: false
+user_config:
+  allow_all_users: false
+  users: ["annotator_6"]
+
+# labels are saved to annotation_output/annotator_6/user_state.json;
+# a jsonl export is also written to annotation_output/exports/
+output_annotation_dir: "annotation_output/"
+export_annotation_format: jsonl
