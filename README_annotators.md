@@ -83,35 +83,8 @@ You can close the browser and resume later in either part; progress is saved.
 
 ## 5. Send your results back
 
-When both parts are done, stop the server (Ctrl+C). Then send your results in
-either of these two ways.
-
-**Option A: email.** Zip your whole `annotators/annotator_3/` folder (it
-contains both `annotation_output/` folders) and email it to etpak@umich.edu.
-
-**Option B: pull request.** This needs a GitHub account and a `git clone` of the
-repo (not the ZIP download).
-
-1. On GitHub, open
-   [elliotpak2k/espresso-extraction](https://github.com/elliotpak2k/espresso-extraction)
-   and click **Fork** to make your own copy.
-2. From the `espresso-extraction` folder, commit your two `annotation_output/`
-   folders to a new branch and push it to your fork. Replace `<your-username>`
-   with your GitHub username:
-
-   ```
-   git checkout -b results-annotator_3
-   git add -f annotators/annotator_3/1_channeling/annotation_output annotators/annotator_3/2_crema/annotation_output
-   git commit -m "Results: annotator_3"
-   git push https://github.com/<your-username>/espresso-extraction.git results-annotator_3
-   ```
-
-   `-f` is needed because `annotation_output/` is ignored by git. Only add your
-   own annotator folder.
-3. Open your fork on GitHub, click **Compare & pull request**, and open a pull
-   request into `elliotpak2k/espresso-extraction` `main`.
-
-Pull requests are public, so please don't open other annotators' result pull
-requests before you have finished your own labels.
+When both parts are done, stop the server (Ctrl+C), then zip your whole
+`annotators/annotator_3/` folder (it contains both `annotation_output/`
+folders) and email it to etpak@umich.edu.
 
 Questions or problems: etpak@umich.edu / @elliotpak on Discord
