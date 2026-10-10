@@ -155,9 +155,9 @@ shots with no puck photo.
 | Path | Contents | Committed |
 |---|---|---|
 | `images/<id>.jpg` | 308 resized photos (1200×1600, 2 are 1600×1200), named by opaque ID, about 126 MB total | yes |
-| `annotators/annotator_N/1_channeling/` | [Potato](https://potatoannotator.com) task for puck photos: `config.yaml` + `data.jsonl` | yes |
-| `annotators/annotator_N/2_crema/` | Potato task for crema photos | yes |
-| `annotators/annotator_N/*/annotation_output/` | That annotator's labels, made by Potato (§5.4) | no (sent back privately) |
+| `annotators/annotator_N_<name>/1_channeling/` | [Potato](https://potatoannotator.com) task for puck photos: `config.yaml` + `data.jsonl` | yes |
+| `annotators/annotator_N_<name>/2_crema/` | Potato task for crema photos | yes |
+| `annotators/annotator_N_<name>/*/annotation_output/` | That annotator's labels, made by Potato (§5.4) | no (sent back privately) |
 | `prepare_data.py` | Builds `images/` and `annotators/` from the shot sheet | yes |
 | `annotation_guidelines.md` | Label definitions and decision rules | yes |
 | `guideline_examples/` | Example photos embedded in the guidelines, two per label (`<task>_<label>_N.jpg`) | yes |

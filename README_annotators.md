@@ -48,10 +48,22 @@ If the `potato` command is not found or is blocked, use
 
 ## 3. Part 1: Channeling
 
-Use the folder number you were assigned (e.g. annotator_3):
+Find your name below to get your folder and login:
+
+| Annotator | Folder | Login |
+|---|---|---|
+| Valentina Bustamante | `annotators/annotator_1_valentina_bustamante/` | `annotator_1` |
+| Khurram Shafique | `annotators/annotator_2_khurram_shafique/` | `annotator_2` |
+| Luke Stemmerich | `annotators/annotator_3_luke_stemmerich/` | `annotator_3` |
+| Raafat Saeed | `annotators/annotator_4_raafat_saeed/` | `annotator_4` |
+| Shaun Sarcona | `annotators/annotator_5_shaun_sarcona/` | `annotator_5` |
+| Venkat Repaka | `annotators/annotator_6_venkat_repaka/` | `annotator_6` |
+
+The examples below use annotator_3 (Luke Stemmerich); substitute your own
+folder and login:
 
 ```
-cd annotators/annotator_3/1_channeling
+cd annotators/annotator_3_luke_stemmerich/1_channeling
 potato start config.yaml -p 8000
 ```
 
@@ -84,7 +96,7 @@ You can close the browser and resume later in either part; progress is saved.
 ## 5. Send your results back
 
 When both parts are done, stop the server (Ctrl+C), then zip your whole
-`annotators/annotator_3/` folder (it contains both `annotation_output/`
+`annotators/annotator_3_luke_stemmerich/` folder (it contains both `annotation_output/`
 folders) and email it to etpak@umich.edu.
 
 Questions or problems: etpak@umich.edu / @elliotpak on Discord
